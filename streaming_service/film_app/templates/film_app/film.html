@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Всі фільми</title>
-    </head>
-    <body>
-        <h1>Усі фільми</h1>
-        {% for film in films %}
-            <hr>
-            <h2>{{ film.name }}!!</h2>
-            <p><img src="{{ film.preview_image.url }}" alt=""></p>
-            <p>{{ film.description }}</p>
-            <p><a href="{% url 'add_to_favorite' film.id %}">Додати до улюбленого</a></p>
-        {% endfor %}
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Усі фільми</h1>
+    {% for film in films %}
+        <hr>
+        <h2>{{ film.name }}</h2>
+        <p><img src="{{ film.preview_image.url }}" alt=""></p>
+        <p>{{ film.description }}</p>
+        <p><a href="{% url 'add_to_favorite' film.id %}">Додати до улюбленого</a></p>
+    {% endfor %}
+{% endblock %}

@@ -5,6 +5,7 @@ from django.http import HttpRequest
 
 def render_all_films(request: HttpRequest):
     films = Film.objects.all()
+    
     return render(request,"film_app/film.html", context={"films": films})
 
 # Функція 'add_to_favorite' відповідає за додавання будь якого фільма в Улюблені в Улюблені

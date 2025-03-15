@@ -1,0 +1,19 @@
+{% load customtags %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="{% url 'all_films' %}">Усі фільми</a>
+                <a href="{% url 'favorite_films' %}">Улюблені фільми ({% number_of_favorites request %})</a>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

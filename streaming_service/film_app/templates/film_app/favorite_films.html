@@ -1,17 +1,12 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ваші улюблені фільми</title>
-    </head>
-    <body>
-        <h1>Улюблені фільми</h1>
-        {% for film in films %}
-            <hr>
-            <h2>{{ film.name }}??</h2>
-            <p><img src="{{ film.preview_image.url }}" alt="ш ащкпще ашдь шьфпу("></p>
-            <p>{{ film.description }}...</p>
-            <p><a href="#">Видалити з улюбленого</a></p>
-        {% endfor %}
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Улюблені фільми</h1>
+    {% for film in films %}
+        <hr>
+        <h2>{{ film.name }}</h2>
+        <p><img src="{{ film.preview_image.url }}" alt=""></p>
+        <p>{{ film.description }}</p>
+        <p><a href="#">Видалити з улюбленого</a></p>
+    {% endfor %}
+{% endblock %}
