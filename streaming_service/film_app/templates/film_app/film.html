@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+<script defer src = "{% static 'film_app/js/jquery-3.7.1.min.js' %}"></script>
+<script defer src = "{% static 'film_app/js/ajax.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <h1>Усі фільми</h1>
@@ -7,6 +13,6 @@
         <h2>{{ film.name }}</h2>
         <p><img src="{{ film.preview_image.url }}" alt=""></p>
         <p>{{ film.description }}</p>
-        <p><a href="{% url 'add_to_favorite' film.id %}">Додати до улюбленого</a></p>
+        <p><button class="add-to-favorite" value="{% url 'add_to_favorite' film.id %}">Додати до улюбленого</button></p>
     {% endfor %}
 {% endblock %}
