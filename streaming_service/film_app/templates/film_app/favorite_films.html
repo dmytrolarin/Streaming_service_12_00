@@ -1,12 +1,7 @@
 {% extends "base.html" %}
+{% load customtags %}
 
 {% block content %}
     <h1>Улюблені фільми</h1>
-    {% for film in films %}
-        <hr>
-        <h2>{{ film.name }}</h2>
-        <p><img src="{{ film.preview_image.url }}" alt=""></p>
-        <p>{{ film.description }}</p>
-        <p><a href="#">Видалити з улюбленого</a></p>
-    {% endfor %}
+    {% list_films "delete" %}
 {% endblock %}

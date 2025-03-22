@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load customtags %}
 
 {% block scripts %}
 <script defer src = "{% static 'film_app/js/jquery-3.7.1.min.js' %}"></script>
@@ -8,11 +9,7 @@
 
 {% block content %}
     <h1>Усі фільми</h1>
-    {% for film in films %}
-        <hr>
-        <h2>{{ film.name }}</h2>
-        <p><img src="{{ film.preview_image.url }}" alt=""></p>
-        <p>{{ film.description }}</p>
-        <p><button class="add-to-favorite" value="{% url 'add_to_favorite' film.id %}">Додати до улюбленого</button></p>
-    {% endfor %}
+    {% best_film %}
+    {% list_films "add" %}
+    {% best_film %}
 {% endblock %}
