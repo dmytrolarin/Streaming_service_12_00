@@ -49,7 +49,7 @@ def list_films(context, add_or_delete):
         films_context["button_class"] = "add-to-favorite"
     else:
         # Вказуємо відповідні параемтри для кнопки, якщо треба відображати під фільмами кнопку "видалити зщ улюбленного"
-        films_context["button_url"] = "add_to_favorite"
+        films_context["button_url"] = "delete_from_favorite"
         films_context["button_text"] = "Видалити з улюбленого"
         films_context["button_class"] = "delete-from-favorite"
     # Передаємо параметри у list_films.html

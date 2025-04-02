@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 {% load customtags %}
+
+{% block scripts %}
+<script defer src = "{% static 'film_app/js/jquery-3.7.1.min.js' %}"></script>
+<script defer src = "{% static 'film_app/js/ajax.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <h1>Улюблені фільми</h1>

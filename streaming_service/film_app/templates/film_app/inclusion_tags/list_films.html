@@ -3,5 +3,5 @@
     <h2>{{ film.name }}</h2>
     <p><img src="{{ film.preview_image.url }}" alt=""></p>
     <p>{{ film.description }}</p>
-    <p><button class="{{ button_class }}" value="{% url button_url film.id %}">{{ button_text }}</button></p>
+    <p><button class="{{ button_class }} manage-favorites-button" value="{% url button_url film.id %}">{{ button_text }}</button></p>
 {% endfor %}
