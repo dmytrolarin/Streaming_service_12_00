@@ -5,6 +5,7 @@
 {% block scripts %}
 <script defer src = "{% static 'film_app/js/jquery-3.7.1.min.js' %}"></script>
 <script defer src = "{% static 'film_app/js/ajax.js' %}"></script>
+<script defer src = "{% static 'film_app/js/form_ajax.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -12,4 +13,10 @@
     {% best_film %}
     {% list_films "add" %}
     {% best_film %}
+    <form method = "POST" id = "reviewForm">
+        <h2>Надішліть відгук стосовно нашого хостингу</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Надіслати</button>
+    </form>
 {% endblock %}

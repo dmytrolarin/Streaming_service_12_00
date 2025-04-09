@@ -1,12 +1,19 @@
 from django.shortcuts import render, redirect
 from .models import Film
 from django.http import HttpRequest, HttpResponse
+from .forms import ReviewForm
 
 
 def render_all_films(request: HttpRequest):
     films = Film.objects.all()
-    
-    return render(request,"film_app/film.html", context={"films": films})
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return redirect('all_films')
+    else:
+        form = ReviewForm()
+    return render(request,"film_app/film.html", context={"films": films, 'form': form})
 
 # Функція 'add_to_favorite' відповідає за додавання будь якого фільма в Улюблені в Улюблені
 def add_to_favorite(request: HttpRequest, film_id: int):
@@ -79,5 +86,7 @@ def delete_from_favorite(request: HttpRequest, film_id: int):
     response["film_amount"] = film_amount
     # Повератємо об'єкт відопвіді
     return response
+
+
 
     
